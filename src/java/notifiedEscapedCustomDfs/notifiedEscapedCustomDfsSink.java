@@ -32,10 +32,6 @@ import com.testing.notifications.notify;
  * specified the default set by flume.collector.outputformat in the
  * flumeconfiguration file is used.
  * 
- * TODO (jon) eventually, the CustomDfsSink should be replaced with just a
- * EventSink.
- * 
- * TODO (jon) this is gross, please deprecate me.
  */
 public class notifiedEscapedCustomDfsSink extends EventSink.Base {
 	static final Logger LOG = LoggerFactory

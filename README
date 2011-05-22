@@ -1,0 +1,36 @@
+notifiedEscapedCustomDfs
+________________________
+
+The plugin extends the functionality of the factory escapedCustomDfs in flume with a mechanism for notifying when the sink closes. This uses some custom code to send an email (could be replaced with any other kind of mechanism/method of notification). Please follow the following instructions to get the plugin working with existing flume source tree (v 0.9.3).
+
+HOWTO
+_____
+
+Setting up the mail host and addresses
+______________________________________
+
+Edit the code within lib/com/testing/notifications/notify.java and enter the mail host (something like smtp.gmail.com ..) and other details missing from the file.
+
+Building the plugin
+___________________
+
+Ensure your system has both flume (and obviously java, ant) installed. 
+In the top level build.xml file edit line 26 to enter the path of the flume base, this is most probably /usr/lib/flume/ on most systems if you have installed using one of the bundled packages (.rpm, .deb), or the flume source code directory if you installed from source.
+ 
+  <property name="flume.base" value="Enter Path here"/>
+
+Now  run "make" in the top level directory and you should end up with a notified_escaped_custom_dfs_plugin.jar file, follow the directions on linking up flume plugins from the flume user guide(http://archive.cloudera.com/cdh/3/flume/UserGuide/index.html) to include this plugin. Specifically you would have to export an environment variable FLUME_CLASSPATH with the path to the plugin jar file and then start the master and nodes.
+
+For more information on flume and other related things, the above link to the flume user guide and the github flume repository(https://github.com/cloudera/flume/wiki) are good places to look for. 
+
+
+Future Direction
+_______________
+
+I am planning to develop this into a generic notifier mechanism within flume (like the sink decorator functionality) as having notifications is a common use case. 
+Notifications could also be added at the append() call within the sink thus allowing notifications on each append call, this might be useful in an entirely different set of use case scenarios. (More work on this coming soon)
+
+
+
+PS : Unfortunately I do not yet know how to handle "ant" properly and hence the clumsy usage of both "make" and "ant"
+The code for the plugin is 99% the code from escapedCustomDfsSink.java from the flume source tree (v 0.9.3) with just some code added for notification, this is just a proof of concept.

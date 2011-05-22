@@ -122,8 +122,8 @@ public class notifiedEscapedCustomDfsSink extends EventSink.Base {
 				 */
 				LOG.info("Requesting to send notification");
 				boolean result = notify
-						.sendMail("flume@flumenotifier.linuxbox",
-								"seerpini@purdue.edu", "Written hdfs file :"
+						.sendMail("<from_email_address>",
+								"<to_email_address>", "Written hdfs file :"
 										+ e.getKey());
 				if (result) {
 					LOG.info("notification sent successfully");
@@ -143,8 +143,8 @@ public class notifiedEscapedCustomDfsSink extends EventSink.Base {
 			 */
 			LOG.info("Requesting to send notification");
 			boolean result = notify
-					.sendMail("flume@flumenotifier.linuxbox",
-							"seerpini@purdue.edu", "Written hdfs file :"
+					.sendMail("<from_email_address>",
+							"<to_email_address>", "Written hdfs file :"
 									+ absolutePath);
 			if (result) {
 				LOG.info("notification sent successfully");

@@ -35,8 +35,10 @@ repository(https://github.com/cloudera/flume/wiki) are good places to look for.
 Future Direction
 _______________
 
-I am planning to develop this into a generic notifier mechanism within flume (like the sink decorator functionality) as having notifications is a common use case. 
-Notifications could also be added at the append() call within the sink thus allowing notifications on each append call, this might be useful in an entirely different set of use case scenarios. (More work on this coming soon)
+I am planning to develop this into a generic notifier mechanism within flume (like the sink decorator functionality) as having 
+notifications is a common use case. 
+Notifications could also be added at the append() call within the sink thus allowing notifications on each append call, this might be 
+useful in an entirely different set of use case scenarios. (More work on this coming soon)
 
 
 
